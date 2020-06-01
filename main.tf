@@ -58,7 +58,7 @@ resource "aws_lambda_function" "put_comment" {
   role             = aws_iam_role.iam_for_lambda.arn
   handler          = "index.putComment"
   source_code_hash = module.lambda_zip_put_comment.output_base64sha256
-  runtime          = "nodejs8.10"
+  runtime          = "nodejs12.x"
   timeout          = 5
 
   environment {
@@ -99,7 +99,7 @@ resource "aws_lambda_function" "get_comments" {
   role             = aws_iam_role.iam_for_lambda.arn
   handler          = "index.getComments"
   source_code_hash = module.lambda_zip_get_comments.output_base64sha256
-  runtime          = "nodejs8.10"
+  runtime          = "nodejs12.x"
 
   environment {
     variables = {
@@ -131,7 +131,7 @@ resource "aws_lambda_function" "accept_comment" {
   role             = aws_iam_role.iam_for_lambda.arn
   handler          = "index.acceptComment"
   source_code_hash = module.lambda_zip_accept_comment.output_base64sha256
-  runtime          = "nodejs8.10"
+  runtime          = "nodejs12.x"
 
   environment {
     variables = {
