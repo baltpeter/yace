@@ -30,7 +30,7 @@ resource "aws_dynamodb_table" "db" {
 }
 
 module "dynamodb_autoscaler" {
-  source                       = "git::https://github.com/cloudposse/terraform-aws-dynamodb-autoscaler.git?ref=tags/0.2.4"
+  source                       = "git::https://github.com/cloudposse/terraform-aws-dynamodb-autoscaler.git?ref=tags/0.5.0"
   namespace                    = "yace"
   stage                        = "prod"
   name                         = var.name
@@ -187,7 +187,7 @@ resource "aws_api_gateway_integration" "put_comment" {
 // >> CORS
 
 module "put_comment_cors" {
-  source = "github.com/squidfunk/terraform-aws-api-gateway-enable-cors?ref=0.3.0"
+  source = "github.com/squidfunk/terraform-aws-api-gateway-enable-cors?ref=0.3.1"
 
   api_id          = aws_api_gateway_rest_api.api.id
   api_resource_id = aws_api_gateway_rest_api.api.root_resource_id
@@ -239,7 +239,7 @@ resource "aws_api_gateway_integration" "get_comments" {
 // >> CORS
 
 module "get_comments_cors" {
-  source = "github.com/squidfunk/terraform-aws-api-gateway-enable-cors?ref=0.3.0"
+  source = "github.com/squidfunk/terraform-aws-api-gateway-enable-cors?ref=0.3.1"
 
   api_id          = aws_api_gateway_rest_api.api.id
   api_resource_id = aws_api_gateway_resource.get_comments.id
