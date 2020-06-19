@@ -63,6 +63,8 @@ For successful comments, an email is sent to the email address specified in the 
 
 To access the comments for a piece of content, simply send a `GET` request to `{service_url}/get/{target}`. The response will be a JSON array of all the comments (possibly none) relating to that `target` that have been accepted before.
 
+Note the the `message` is not sanitized at all by yace, it may contain HTML. That should be taken into account when moderating new comments. In addition, the client needs to ensure that no XSS attacks can be performed.
+
 ```json
 [
   {

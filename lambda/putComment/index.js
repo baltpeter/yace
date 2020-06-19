@@ -38,7 +38,7 @@ exports.putComment = async function(event, context) {
 		Item: {
 			id: nanoid(),
 			author: stripTags(body.author),
-			message: stripTags(body.message),
+			message: body.message,
 			target: body.target.replace(/[^a-zA-Z0-9/_-]/, '').replace(/^\s*\/*\s*|\s*\/*\s*$/gm, ''),
 			additional: body.additional instanceof Object ? body.additional : {},
 			accept_token: nanoid(),
